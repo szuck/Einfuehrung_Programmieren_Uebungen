@@ -1,0 +1,36 @@
+import java.util.Scanner;
+
+public class GGT {
+
+    public static int calc(int i,int j){
+        int max = Math.max(i,j);
+        int min = Math.min(i,j);
+        int rest = max-min;
+
+        if (rest > min){
+            return calc(rest,min);
+        }
+
+        else if (rest == 0){
+            return min;
+        }
+
+        else{
+            return calc(min,rest);
+        }
+    }
+
+    @SuppressWarnings("ConvertToTryWithResources")
+    public static void main(String[] args) {
+        Scanner userInput = new Scanner(System.in);
+        int i,j;
+        
+        System.out.println("Zahlen eingeben:");
+        i = userInput.nextInt();
+        
+        j = userInput.nextInt();
+        userInput.close();
+
+    System.out.println("-----------\nGGT: " + calc(i,j));
+    }
+}
